@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap');
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: 'Titillium Web', sans-serif;
 }
 
-:root{
+:root {
     --mainColor: #DEB6AB;
     --mainColorLight: #F5E8C7;
     --secondaryColor: #ECCCB2;
     --textColor: #AC7088;
 }
 
-header{
+header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -26,17 +26,17 @@ header{
 
 
 
-nav a{
+nav a {
     margin: 0 2rem;
     color: var(--textColor);
     text-decoration: none;
 }
 
-nav a:hover{
+nav a:hover {
     color: var(--secondaryColor);
 }
 
-header .nav-btn{
+header .nav-btn {
     padding: 5px;
     cursor: pointer;
     background-color: transparent;
@@ -48,12 +48,13 @@ header .nav-btn{
     font-size: 1.8rem;
 }
 
-@media only screen and (max-width: 1024px){
-    header .nav-btn{
+@media only screen and (max-width: 1024px) {
+    header .nav-btn {
         visibility: visible;
         opacity: 1;
     }
-    header nav{
+
+    header nav {
         position: fixed;
         top: 0;
         left: 0;
@@ -68,18 +69,20 @@ header .nav-btn{
         transition: 1s;
         transform: translateY(-100vh);
     }
-    header .responsive_nav{
+
+    header .responsive_nav {
         transform: none;
     }
-    
-    nav .nav-close-btn{
+
+    nav .nav-close-btn {
         position: absolute;
         top: 2rem;
         right: 2rem;
     }
 
-    nav a{
+    nav a {
         font-size: 1.5rem;
     }
-    
+
 }
+
