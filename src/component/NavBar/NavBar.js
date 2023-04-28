@@ -1,32 +1,29 @@
-import { useRef } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { useState, useEffect } from "react";
 import CartWidget from "../CartWidget/CartWidget";
+import { NavLink, Link } from "react-router-dom";
 
-
-function NavBar() {
-    const navRef = useRef();
-    const showNavbar = () => {
-        navRef.current.classList.toggle("responsive_nav");
-    }
+const NavBar = () => {
     return (
         <header>
-            
-            <nav ref={navRef}>
-                    <a href="/#">Home</a>
-                    <a href="/#">Saumerios & Hierbas</a>
-                    <a href="/#">Velas</a>
-                    <a href="/#">Complementos</a>
-                    <button className="nav-btn nav-close-btn" onClick={showNavbar}>
-                        <FaTimes/>
-                    </button>   
+            <nav class="NavBar">
+                <Link to='/'>
+                    <h3>Flor de Raiz</h3>
+                </Link>
+                <div class="Categories">
+                    <NavLink to={`/category/Saumerios & Hierbas`} className={({ IsActive }) => IsActive ? "ActiveOption" : "Option"}>
+                        Saumerios & Hierbas
+                    </NavLink>
+                    <NavLink to={`/category/Velas`}className={({ IsActive }) => IsActive ? "ActiveOption" : "Option"}>
+                        Velas
+                    </NavLink>
+                    <NavLink to={`/category/Complementos`} className={({ IsActive }) => IsActive ? "ActiveOption" : "Option"}>
+                        Complementos
+                    </NavLink>
+                </div>
+                <CartWidget />
             </nav>
-            <button className="nav-btn nav-close-btn" onClick={showNavbar}>
-                <FaBars />
-            </button>
-            <CartWidget />
-           
         </header>
-    )
-}
+    );
+};
 
-export default NavBar
+export default NavBar;

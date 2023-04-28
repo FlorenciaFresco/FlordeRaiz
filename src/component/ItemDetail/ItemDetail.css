@@ -1,0 +1,17 @@
+.CardItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 3rem;
+}
+
+.Detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ItemFooter {
+    display: flex;
+    flex-direction: row;
+}
