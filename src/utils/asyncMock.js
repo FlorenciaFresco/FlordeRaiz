@@ -17,16 +17,8 @@ const products = [
         description: 'Sahumo tierra Aromaterapia',
     },
 
-    {   id: '3',
-        name: 'Hierba vida',
-        price: 50,
-        category: 'Saumerios & Hierbas',
-        img: 'https://http2.mlstatic.com/D_NQ_NP_665754-MLM44767149859_012021-O.jpg',
-        stock: 25,
-        description: 'Hierba vida Aromaterapia',
-    },
     {
-        id: '4',
+        id: '3',
         name: 'Vela Floral',
         price: 500,
         category: 'Velas',
@@ -35,7 +27,7 @@ const products = [
         description: 'Vela Floral Aromaterapia',
     },
     {
-        id: '5',
+        id: '4',
         name: 'Vela Jardin',
         price: 500,
         category: 'Velas',
@@ -43,26 +35,8 @@ const products = [
         stock: 25,
         description: 'Vela Jardin Aromaterapia',
     },
-    {
-        id: '6',
-        name: 'Vela Primavera',
-        price: 500,
-        category: 'Velas',
-        img: 'https://4.bp.blogspot.com/-AFeXWCxR3VY/W3JJaAPlmDI/AAAAAAAA6VA/OXX2datPdTMjy_wk_b625AIXv6WfxtslwCLcBGAs/s1600/velas-flores-incrustadas4.jpg',
-        stock: 25,
-        description: 'Vela Primavera Aromaterapia',
-    },
 
-    {   id: '7',
-        name: 'Cuenco',
-        price: 500,
-        category: 'Complementos',
-        img: 'https://http2.mlstatic.com/D_NQ_NP_657189-MLA52539960716_112022-W.jpg',
-        stock: 25,
-        description: 'Cuenco Aromaterapia',
-    },
-
-    {   id: '8',
+    {   id: '5',
         name: 'Porta sahumo',
         price: 500,
         category: 'Complementos',
@@ -72,7 +46,7 @@ const products = [
     },
 
     {
-        id: '9',
+        id: '6',
         name: 'Caldero para hierbas',
         price: 500,
         category: 'Complementos',
@@ -99,12 +73,12 @@ export const getProductById = (productId) => {
     })
 }
 
-export const getProductsByCategory = (productCategory) => {
+export const getProductsByIdCategory = (productCategory) => {
     return new Promise((resolve) => {
         setTimeout(() => {
-            resolve(products.filter((prod) => prod.id === productCategory));
+            resolve(products.filter(prod => prod.id === productCategory));
         }, 500);
-    });
-};
+    })
+}
 
 export default products;

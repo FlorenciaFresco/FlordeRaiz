@@ -1,0 +1,33 @@
+.CardItem {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    margin: 1rem;
+    border: var(--textColor);
+    align-items: center;
+}
+
+.ItemHeader {
+    padding: 0.5rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+    color: var(--mainColorLight);
+}
+
+.Info {
+    padding: 0.5rem;
+    margin: 0.5rem;
+    font-size: 1rem;
+    font-style: italic;
+    align-items: center;
+}
+
+.ItemFooter {
+    padding: 0.5rem;
+    margin: 1rem;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    color: var(--textColor);
+    text-decoration: none;
+    text-align: end;
+}

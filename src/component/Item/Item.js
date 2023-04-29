@@ -1,10 +1,10 @@
-import React from "react";
 import { Link } from "react-router-dom";
-
+import "./Item.css";
 
 const Item = ({ id, name, img, price, stock }) => {
     return (
         
+        <div className="col1">
             <article className="CardItem">
                 <header className="Header">
                     <h2 className="ItemHeader">{name}</h2>
@@ -22,8 +22,9 @@ const Item = ({ id, name, img, price, stock }) => {
                     </Link>
                 </footer>
             </article>
-        
-    )
-}
+        </div>
+      
+    );
+};
 
 export default Item;
