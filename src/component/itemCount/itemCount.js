@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { FaChevronUp, FaChevronDown } from 'react-icons/fa';
 
 const ItemCount = ({ stock, initial, onAdd }) => {
     const [quantity, setQuantity] = useState(initial);
@@ -20,11 +21,11 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         <div class="Counter">
             <div class="Controls">
                 <button class="Button" onClick={decrement}>
-                    -
+                    <FaChevronDown />
                 </button>
                 <h4 class="Number">{quantity}</h4>
                 <button class="Button" onClick={increment}>
-                    +
+                    <FaChevronUp />
                 </button>
             </div>
             <div>

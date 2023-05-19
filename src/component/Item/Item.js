@@ -4,7 +4,7 @@ import "./Item.css";
 const Item = ({ id, name, img, price, stock }) => {
     return (
         
-        <div className="col1">
+        <div>
             <article className="CardItem">
                 <header className="Header">
                     <h2 className="ItemHeader">{name}</h2>
