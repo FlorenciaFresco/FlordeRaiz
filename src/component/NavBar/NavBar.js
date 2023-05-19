@@ -3,7 +3,6 @@ import logo from './logo.png';
 import CartWidget from '../CartWidget/CartWidget';
 import { Navbar, NavDropdown, Container, Nav } from 'react-bootstrap';
 import './NavBar.css';
-// import Link from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import useCartContext from '../../store/CartContext';
@@ -26,12 +25,10 @@ function NavBar(props) {
                             <Nav className="me-auto">
                                 <link onClick={() => setExpanded(false)} to="/inicio"><Nav.Link href="#home">Inicio</Nav.Link></link>
                                 <NavDropdown title="Menú" id="basic-nav-dropdown">
-                                    <link onClick={() => setExpanded(false)} to="/"><NavDropdown.Item>Smartphones</NavDropdown.Item></link>
-                                    <link onClick={() => setExpanded(false)} to="/category/apple"><NavDropdown.Item>Apple</NavDropdown.Item></link>
-                                    <Link onClick={() => setExpanded(false)} to="/category/samsung"><NavDropdown.Item>Samsung</NavDropdown.Item></Link>
-                                    <link onClick={() => setExpanded(false)} to="/category/android"><NavDropdown.Item>Android</NavDropdown.Item></link>
+                                    <link onClick={() => setExpanded(false)} to="/"><NavDropdown.Item>Saumerios & Hierbas</NavDropdown.Item></link>
+                                    <link onClick={() => setExpanded(false)} to="/category/velas"><NavDropdown.Item>Velas</NavDropdown.Item></link>
+                                    <Link onClick={() => setExpanded(false)} to="/category/complementos"><NavDropdown.Item>Complementos</NavDropdown.Item></Link>
                                     <NavDropdown.Divider />
-                                    <link onClick={() => setExpanded(false)} to="/category/accesorios"><NavDropdown.Item>Accesorios</NavDropdown.Item></link>
                                 </NavDropdown>
                                 
                             </Nav>

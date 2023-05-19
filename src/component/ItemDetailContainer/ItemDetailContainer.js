@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemDetail from '../ItemDetail/ItemDetail.js';
 import { useParams } from 'react-router-dom';
 import { getItem } from '../../services/firebase/FireStore.js';
+import { getFirestone, doc, getDoc } from 'react-router-dom';
 
 function ItemDetailContainer({ greeting, items }) {
     const [producto, setProducto] = useState([]);

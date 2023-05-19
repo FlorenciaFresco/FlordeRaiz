@@ -19,7 +19,7 @@ function Item({ item, stock, name, price, description, picture }) {
                 :
                 <><div className="cart-icon2"><FontAwesomeIcon icon={faCartShopping} size="1x" color="black" /><div className="mostrar-cantidadItem">0</div></div></>
             }</span>
-            <link to={`/item/${item}`}><Card.Img className="picHover rounded" variant="top" src={picture} alt={name} /></link>
+            <Link to={`/item/${item}`}><Card.Img className="picHover rounded" variant="top" src={picture} alt={name} /></Link>
             <Card.Body>
 
                 <Card.Text>
@@ -30,7 +30,7 @@ function Item({ item, stock, name, price, description, picture }) {
                 <Badge className="mb-4 text-center m-1">Stock {stock}</Badge>
                 <Badge bg="success me-2 mb-4 text-center m-1">$ {price} COP</Badge>
             </Container>
-            <link to={`/item/${item}`}><Button className="btn btn-info">Ver detalles</Button></link>
+            <Link to={`/item/${item}`}><Button className="btn btn-info">Ver detalles</Button></Link>
         </Card>
 
     )
