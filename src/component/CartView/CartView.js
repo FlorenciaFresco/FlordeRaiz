@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import { useState } from 'react';
 import './CartView.css';
-import jimpitech from '../../assets/images/logo-jimp.png';
+import florlogo from '../../assets/Images/logo.svg';
 
 
 function CartView({ greeting }) {
@@ -67,7 +67,7 @@ function CartView({ greeting }) {
         function setTitle(title) {
             document.title = title;
         }
-        setTitle("JIMP iTech! -- Carrito");
+        setTitle("Flor de Raiz! -- Carrito");
     }, []);
 
 
@@ -76,7 +76,7 @@ function CartView({ greeting }) {
             <div className="row py-lg-5">
                 <div className="col-12">
                     <p>No hay items en su carrito</p>
-                    <img src={jimpitech} width="480px" alt="JIMP iTech" className="img-fluid" />
+                    <img src={florlogo} width="480px" alt="Flor Logo" className="img-fluid" />
                     <p></p>
                     <Link to="/">Regresar al menú</Link>
                 </div>

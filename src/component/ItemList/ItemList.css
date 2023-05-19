@@ -1,5 +1,7 @@
-.ListGroup {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+.fondo-container {
+    background-color: #E89D5B;
 }
+
+/* .borde:hover{
+    border: 3px solid #ff950b;
+} */

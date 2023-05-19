@@ -1,43 +1,88 @@
-import React from "react";
-import { useState } from "react";
-import { FaChevronUp, FaChevronDown } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { Button } from 'react-bootstrap';
+import Swal from 'sweetalert2';
+import '../itemCount/itemCount.css';
 
-const ItemCount = ({ stock, initial, onAdd }) => {
-    const [quantity, setQuantity] = useState(initial);
 
-    const increment = () => {
-        if (quantity < stock) {
-            setQuantity(quantity+1);
+
+
+const ItemCount = ({ stock, initial, onAdd, itemName }) => {
+    const [count, setCount] = useState(initial)
+    function pluralizeWord(singularWord, pluralWord) {
+        return count > 1 ? pluralWord : singularWord;
+    }
+    const handleAgregar = () => {
+        if (count < stock) {
+            setCount(count + 1)
+
+
+        } else {
+            const Toast = Swal.mixin({
+                toast: true,
+                background: '#ff7300',
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: false,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: 'error',
+                title: 'No hay stock suficiente'
+            })
         }
-    };
 
-    const decrement = () => {
-        if (quantity > 1) {
-            setQuantity(quantity - 1);
+    }
+
+    const handleRestar = () => {
+        if (count > initial) {
+            setCount(count - 1)
+
+
         }
-    };
+    }
+
+    const handleOnAdd = () => {
+        const Toast = Swal.mixin({
+            toast: true,
+            background: '#ff7300',
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: false,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+        Toast.fire({
+            icon: 'success',
+            title: `${count} ${itemName} ${pluralizeWord("agregada", "agregadas")} al carrito`
+        })
+        onAdd(count);
+        setCount(initial);
+    }
 
     return (
-        <div class="Counter">
-            <div class="Controls">
-                <button class="Button" onClick={decrement}>
-                    <FaChevronDown />
-                </button>
-                <h4 class="Number">{quantity}</h4>
-                <button class="Button" onClick={increment}>
-                    <FaChevronUp />
-                </button>
-            </div>
-            <div>
-                <button
-                    class="Button"
-                    onClick={() => onAdd(quantity)}
-                    disabled={!stock}>
-                    Agregar al carrito
-                </button>
-            </div>
-        </div>
-    );
-};
+        <>
+            <div className="d-flex justify-content-center text-center align-items-center contador counter-input input-group mb-3">
 
-export default ItemCount;
+                <div className="input-group-prepend">
+                    <Button onClick={handleRestar} className="text-white btn btn-outline-secondary">-</Button>
+                </div>
+                <input type="text" className="form-control h-100 text-center" readOnly value={count} />
+                <div className="input-group-append">
+                    <Button onClick={handleAgregar} className="text-white btn btn-outline-secondary">+</Button>
+                </div>
+
+                <Button onClick={handleOnAdd} className="text-white btn btn-outline-secondary m-2">Agregar al carrito</Button>
+            </div>
+
+        </>
+
+    )
+}
+
+export default ItemCount

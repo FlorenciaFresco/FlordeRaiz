@@ -1,40 +1,33 @@
-import "./ItemDetailContainer.css";
-import React, { useState, useEffect } from "react";
-import ItemDetail from "../ItemDetail/ItemDetail";
-import { useParams } from "react-router-dom";
-import { getDoc, doc } from "firebase/firestore";
-import { db } from "../../services/firebase/firebaseConfig";
+import React, { useEffect, useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ItemDetail from '../ItemDetail/ItemDetail.js';
+import { useParams } from 'react-router-dom';
+import { getItem } from '../../services/firebase/FireStore.js';
 
-
-const ItemDetailContainer = () => {
-    const [product, setProduct] = useState('all');
-    const [loading, setLoading] = useState(true)
-
-    const { itemId } = useParams();
-
+function ItemDetailContainer({ greeting, items }) {
+    const [producto, setProducto] = useState([]);
+    const { itemid } = useParams();
     useEffect(() => {
-        setLoading(true)
-
-        const docRef = doc(db, 'items', itemId)
-
-        getDoc(docRef)
-            .then(response => {
-                const data = response.data()
-                const productsAdapted = { id: response.id, ...data }
-                setProduct(productsAdapted)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-            .finally(() => {
-                setLoading(false)
-            })    
-    }, [itemId]);
+        getItem(itemid).then(respuestaPromise => {
+            setProducto(respuestaPromise);
+        });
+        // .catch(errorPromise => {
+        //     console.error(errorPromise);
+        // });
+    }, [itemid]);
 
     return (
-        <div className="ItemDetailContainer">
-            <ItemDetail {...product} />
-        </div>
+        <section id="menu" className="text-center container">
+
+            <div className="album bg-degrade">
+                <div className="container">
+                    <div className="">
+                        <ItemDetail detalle={producto} />
+                    </div></div></div>
+        </section>
+
+
     );
-};
+}
+
 export default ItemDetailContainer;

@@ -1,22 +1,21 @@
-import { useContext } from 'react';
-import cart from './assets/cart-fill.svg'
-import { CartContext } from '../../context/CartContext';
+import React from 'react';
+import './CartWidget.css';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import useCartContext from '../../store/CartContext';
 
-
-
-const CartWidget = () => {
-    const { cart, totalQuantity } = useContext(CartContext);
-
+function CartWidget(props) {
+    const { itemsTotal } = useCartContext();
     return (
-        <Link to='/cart' class='CartWidget' style={{
-            display: totalQuantity > 0 ? 'block' : 'none'
-        }}>
-            <img class='CartImg' src={cart} alt='cart-widget' />
-            {totalQuantity}
-            </Link>
+        <Link to="/cart" className="text-dark">
+            <div className="cart-icon">
+                <FontAwesomeIcon icon={faCartShopping} size="2x" color="black" />
+                {itemsTotal() ? <div className="mostrar-cantidad">{itemsTotal()}</div>
+                    : <div className="mostrar-cantidad2">{itemsTotal()}</div>}
+
+            </div>
+        </Link>
     );
-
 }
-
-export default CartWidget
+export default CartWidget;
