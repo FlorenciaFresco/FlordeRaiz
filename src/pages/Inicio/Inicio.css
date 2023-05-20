@@ -1,0 +1,12 @@
+.mainjimp {
+    background-image: url(../../assets/images/card.jpg);
+}
+
+.card-bodyjimp{
+    background-color: #d624c7;
+}
+
+.mundos{
+    padding-left: 20%;
+    padding-right: 20%;
+}
